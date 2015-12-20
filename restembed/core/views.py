@@ -13,8 +13,13 @@ def index(request):
   context = {'latest_prediction_list': latest_prediction_list}
   return render(request, "core/index.html", context)
 
-def new_set(request):
-  return render(request, "core/new_set.html")
+def set_index(request):
+  all_sets = Dataset.objects.order_by('-created_at')
+  context = {'all_sets': all_sets}
+  return render(request, "core/set_index.html", context)
+
+def create_set(request):
+  return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
 
 def new(request):
   api = BigML(dev_mode=True)
