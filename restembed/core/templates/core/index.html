@@ -7,11 +7,20 @@
 <body>
   <div class= 'container'>
       <h2 class='intro'>Create a new prediction</h2>
-      <form action="{% url 'core:new' %}" method="post">
+      <form id ='new-pred' class='form-inline' action="{% url 'core:new' %}" method="post">
         {% csrf_token %}
-        Sepal Length: <input type="text" name="sepal_l">
-        Sepal Width:  <input type="text" name="sepal_w">
-        Petal Length: <input type="text" name="petal_l">
+        <div class="form-group">
+            <label>Sepal Length:</label>
+            <input type="text" name="sepal_l">
+        </div>
+        <div class="form-group">
+            <label>Sepal Width:</label>
+            <input type="text" name="sepal_w">
+        </div>
+        <div class="form-group">
+            <label>Petal Length:</label>
+            <input type="text" name="petal_l">
+        </div>
         <input type="submit" value="Submit">
       </form>
 
