@@ -1,3 +1,6 @@
 from django.test import TestCase
 
-# Create your tests here.
+class PredictionViewTests(TestCase):
+  def test_index_with_manual_prediction(self):
+    self.assertEqual(True, True)
+

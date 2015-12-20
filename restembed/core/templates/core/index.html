@@ -6,7 +6,7 @@
 </head>
 <body>
   <div class= 'container'>
-      <h2 class='intro'>Create a new prediction</h2>
+      <h2 class='intro'>Create a new prediction for the Iris Dataset</h2>
       <form id ='new-pred' class='form-inline' action="{% url 'core:new' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
@@ -25,7 +25,6 @@
       </form>
 
 
-      {% if latest_prediction_list %}
         <table class="table">
           <tr>
             <th>ID</th>
@@ -46,9 +45,6 @@
               </tr>
           {% endfor %}
         </table>
-      {% else %}
-          <p>No polls are available.</p>
-      {% endif %}
   </div>
 
 </body>
