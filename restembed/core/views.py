@@ -14,7 +14,7 @@ def index(request):
   return render(request, "core/index.html", context)
 
 def new_set(request):
-  return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+  return render(request, "core/new_set.html")
 
 def new(request):
   api = BigML(dev_mode=True)
