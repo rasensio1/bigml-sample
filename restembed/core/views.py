@@ -13,6 +13,9 @@ def index(request):
   context = {'latest_prediction_list': latest_prediction_list}
   return render(request, "core/index.html", context)
 
+def new_set(request):
+  return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
 def new(request):
   api = BigML(dev_mode=True)
 

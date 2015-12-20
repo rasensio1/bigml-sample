@@ -6,7 +6,8 @@
 </head>
 <body>
   <div class= 'container'>
-      <h2 class='intro'>Create a new prediction for the Iris Dataset</h2>
+    <h3><a href="{% url 'core:new_set' %}">Create a new dataset</a></h3>
+    <h2 class='intro'>Create a new prediction for the Iris Dataset</h2> 
       <form id ='new-pred' class='form-inline' action="{% url 'core:new' %}" method="post">
         {% csrf_token %}
         <div class="form-group">
