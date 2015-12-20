@@ -1,34 +1,45 @@
-<h2>Create a new prediction</h2>
-<form action="{% url 'core:new' %}" method="post">
-  {% csrf_token %}
-  Sepal Length: <input type="text" name="sepal_l">
-  Sepal Width:  <input type="text" name="sepal_w">
-  Petal Length: <input type="text" name="petal_l">
-  <input type="submit" value="Submit">
-</form>
+<head>
+  {% load staticfiles %}
+  <link rel='stylesheet' type='text/css' href="{% static 'core/style.css' %}"/>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+</head>
+<body>
+  <div class= 'container'>
+      <h2 class='intro'>Create a new prediction</h2>
+      <form action="{% url 'core:new' %}" method="post">
+        {% csrf_token %}
+        Sepal Length: <input type="text" name="sepal_l">
+        Sepal Width:  <input type="text" name="sepal_w">
+        Petal Length: <input type="text" name="petal_l">
+        <input type="submit" value="Submit">
+      </form>
 
 
-{% if latest_prediction_list %}
-  <table class="predictions">
-    <tr>
-      <th>ID</th>
-      <th>Sepal Length</th>
-      <th>Sepal Width</th>
-      <th>Petal Length</th>
-      <th>Prediction</th>
-      <th>Created At</th>
-    </tr>
-    {% for prediction in latest_prediction_list %}
-        <tr>
-            <td><p>{{ prediction.id}}</p></td>
-            <td><p>{{ prediction.sepal_length}}</p></td>
-            <td><p>{{ prediction.sepal_width}}</p></td>
-            <td><p>{{ prediction.petal_length}}</p></td>
-            <td><p>{{ prediction.prediction}}</p></td>
-            <td><p>{{ prediction.created_at}}</p></td>
-        </tr>
-    {% endfor %}
-  </table>
-{% else %}
-    <p>No polls are available.</p>
-{% endif %}
+      {% if latest_prediction_list %}
+        <table class="table">
+          <tr>
+            <th>ID</th>
+            <th>Sepal Length</th>
+            <th>Sepal Width</th>
+            <th>Petal Length</th>
+            <th>Prediction</th>
+            <th>Created At</th>
+          </tr>
+          {% for prediction in latest_prediction_list %}
+              <tr>
+                  <td><p>{{ prediction.id}}</p></td>
+                  <td><p>{{ prediction.sepal_length}}</p></td>
+                  <td><p>{{ prediction.sepal_width}}</p></td>
+                  <td><p>{{ prediction.petal_length}}</p></td>
+                  <td><p>{{ prediction.prediction}}</p></td>
+                  <td><p>{{ prediction.created_at}}</p></td>
+              </tr>
+          {% endfor %}
+        </table>
+      {% else %}
+          <p>No polls are available.</p>
+      {% endif %}
+  </div>
+
+</body>
