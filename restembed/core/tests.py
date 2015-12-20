@@ -2,6 +2,7 @@ from django.test import TestCase
 from django.core.urlresolvers import reverse
 from django.utils import timezone
 from .models import IrisPrediction
+from django import forms
 
 def create_pred(s_l, s_w, p_l, pred):
   pred = IrisPrediction.objects.create(sepal_length=s_l,
@@ -24,5 +25,4 @@ class PredictionViewTests(TestCase):
 
     response=self.client.get(reverse('core:index'))
     self.assertContains(response, "something")
-
 
